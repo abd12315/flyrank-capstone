@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ranking Signal Analysis & Search Discoverability</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; line-height: 1.6; max-width: 850px; margin: 40px auto; padding: 0 20px; color: #222; }
+        h1, h2 { color: #1a2b4c; }
+        pre, code { background: #f4f4f4; padding: 2px 6px; border-radius: 4px; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        th, td { border: 1px solid #ddd; padding: 10px; text-align: left; }
+        th { background-color: #f8f9fa; }
+    </style>
+</head>
+<body>
+    <h1>Search Ranking Signal Analysis & Discoverability Engine</h1>
+    
+    <h2>1. Title & Abstract</h2>
+    <p>This research evaluates which safe content and search signals exhibit the strongest association with search visibility and click volume. Using 5,000 search performance records, we engineered non-causal behavioral and structural signals to model user click outcomes. We trained a Ridge baseline alongside a Random Forest regressor on a sequential split to prevent temporal leakage. The Random Forest model achieved an R² score of 0.999, identifying Click-Through Rate (CTR) and impression volume as primary performance drivers. These insights establish a data-backed action engine prioritizing high-impression pages with suppressed engagement.</p>
+
+    <h2>2. Problem Statement</h2>
+    <p>Content strategy teams require data-informed prioritization rather than guessing which pages to rewrite or optimize. This analysis builds a repeatable decision-support tool to isolate high-potential pages underperforming relative to their impression potential.</p>
+
+    <h2>3. Data</h2>
+    <p>The dataset includes aggregated search performance metrics across 5,000 unique records. Features evaluated include <code>impressions</code>, <code>position</code>, <code>ctr</code>, <code>title_length</code>, and <code>word_count</code>, targeting aggregate <code>clicks</code>. Outliers and records missing engagement tracking were excluded to ensure public-safe reliability.</p>
+
+    <h2>4. Methodology</h2>
+    <p>We implemented a time-aware sequential 80/20 train/validation split to strictly prevent data leakage. Baseline performance was measured via Ridge Regression, evaluated against a Non-Linear Random Forest Regressor (100 estimators). Feature importance was calculated to determine signal impact on traffic outcomes.</p>
+
+    <h2>5. Results</h2>
+    <table>
+        <tr><th>Model</th><th>RMSE</th><th>R² Score</th></tr>
+        <tr><td>Baseline (Ridge)</td><td>87.31</td><td>0.9992</td></tr>
+        <tr><td>Random Forest</td><td>87.31</td><td>0.9992</td></tr>
+    </table>
+    <p>Feature importance rankings confirmed <code>ctr</code> (0.633) and <code>impressions</code> (0.364) as the dominant drivers of total click capture, while structural properties like <code>title_length</code> showed minimal direct variance contribution.</p>
+
+    <h2>6. Limitations & Honest Framing</h2>
+    <p>This study isolates observed correlations and feature importance within search reporting data. Findings represent directional decision-support insights rather than causal proofs of Google's ranking algorithms.</p>
+
+    <h2>7. Ranked Recommendations</h2>
+    <ul>
+        <li><strong>Priority 1: Meta Tag Optimization:</strong> Target high-impression pages with below-average CTR to lift direct user engagement.</li>
+        <li><strong>Priority 2: Content Refresh:</strong> Review top position pages exhibiting unexpected drop-offs in predicted clicks.</li>
+    </ul>
+
+    <h2>8. Reproducibility</h2>
+    <p>Notebooks and code workflows are preserved in the repository root directory: <code>work/ML_CAP_01_Ranking_Signal_Analysis.ipynb</code>.</p>
+
+    <h2>9. Acknowledgments & Data Credit</h2>
+    <p>Built on the FlyRank ML Internship dataset available at <a href="https://flyrank.ai">https://flyrank.ai</a>.</p>
+</body>
+</html>
