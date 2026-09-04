@@ -35,8 +35,8 @@
     </table>
     <p>Feature importance rankings confirmed <code>position</code> (~0.59) and <code>impressions</code> (~0.37) as the dominant predictive signals for total click volume, with structural properties like <code>word_count</code> and <code>title_length</code> contributing incremental baseline variance.</p>
 
-    <h2>6. Limitations & Honest Framing</h2>
-    <p>Initial baseline modeling revealed target leakage when including concurrent CTR alongside impressions to predict total clicks ($y = \text{impressions} \times \text{CTR}$). The feature set was refactored to rely strictly on pre-click metadata and search signals (<code>position</code>, <code>impressions</code>, <code>word_count</code>, <code>title_length</code>), restoring valid signal importances and realistic model evaluation. Findings represent directional decision-support insights rather than causal proofs of Google's ranking algorithms.</p>
+   <h2>6. Limitations & Honest Framing</h2>
+    <p>Initial baseline modeling revealed target leakage when including concurrent CTR alongside impressions to predict total clicks <strong>(clicks = impressions × CTR)</strong>. The feature set was refactored to rely strictly on pre-click metadata and search signals (<code>position</code>, <code>impressions</code>, <code>word_count</code>, <code>title_length</code>), restoring valid signal importances and realistic model evaluation. Findings represent directional decision-support insights rather than causal proofs of Google's ranking algorithms.</p>
 
     <h2>7. Ranked Recommendations</h2>
     <ul>
